@@ -1,0 +1,119 @@
+/* Styles généraux */
+body {
+    background-color: #1d1d20;
+    color: #d1d1d6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-frame {
+    position: relative;
+    width: 700px;
+    padding: 30px;
+    background-color: #1d1d20;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Dégradé des coins */
+.corner-top-left,
+.corner-bottom-right {
+    position: absolute;
+}
+
+.corner-top-left {
+    top: 0;
+    left: 0;
+}
+
+.corner-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+/* Icônes */
+.icon-list {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.icon-list img {
+    width: 25px;
+    height: 25px;
+}
+
+/* Contenu principal */
+.frame-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.frame-content-left h1,
+.frame-content-right h1 {
+    font-size: 36px;
+    font-weight: 300;
+    margin: 0;
+    color: #ffffff;
+}
+
+.frame-content-left p {
+    color: #b8b8b8;
+    line-height: 1.6;
+    margin: 15px 0;
+    border-left: 2px solid #a5cb45;
+    padding-left: 10px;
+}
+
+/* Section Projets */
+.frame-content-right {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.frame-content-right li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.frame-content-right li a {
+    color: #b8b8b8;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.frame-content-right li a:hover {
+    color: #a5cb45;
+}
+
+/* Pied de page */
+.frame-footer {
+    text-align: right;
+    color: #666;
+    font-size: 12px;
+}
+
+/* Styles du texte et de la bordure */
+.main-frame h1 {
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.main-frame p {
+    color: #d1d1d6;
+    font-size: 16px;
+}
