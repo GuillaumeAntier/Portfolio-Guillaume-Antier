@@ -1,37 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     const projectLinks = document.querySelectorAll('.projet-list a');
+    const welcomeSection = document.querySelector('.frame-content-left .welcome');
+    const projectSections = document.querySelectorAll('.projet-content');
     const frameContentLeft = document.querySelector('.frame-content-left');
-    const frameContentLeftTitle = frameContentLeft.querySelector('h1');
-    const frameContentLeftParagraph = frameContentLeft.querySelector('p');
-
-    let currentProject =null;
-    const defaultTitle = 'Bienvenue';
-    const defaultContent = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh ante, placerat et vestibulum ultrices, portasit amet neque.\n
-    Etiam vestibulum nisi tristique diam sollicitudin, aultrices felis laoreet. Pellentesque semper interdum posuere. Morbi lobortis hendrerit`;
 
     projectLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            const title = this.getAttribute('data-title');
-            const content = this.getAttribute('data-content');
 
-            frameContentLeftTitle.classList.add('fade-out');
-            frameContentLeftParagraph.classList.add('fade-out');
+            projectSections.forEach(section => section.style.display = 'none');
+            welcomeSection.style.display = 'none';
 
-            setTimeout(() => {
-                if (currentProject === this) {
-                    frameContentLeftTitle.textContent = defaultTitle;
-                    frameContentLeftParagraph.innerHTML = defaultContent;
-                    currentProject = null;
-                } else {
-                    frameContentLeftTitle.textContent = title;
-                    frameContentLeftParagraph.innerHTML = content;
-                    currentProject = this;
-                }
+            const projectId = this.getAttribute('data-id');
+            const projectContent = document.getElementById(projectId);
 
-                frameContentLeftTitle.classList.remove('fade-out');
-                frameContentLeftParagraph.classList.remove('fade-out');
-            }, 500);
+            if (projectContent) {
+                frameContentLeft.classList.add('fade-out');
+
+                setTimeout(() => {
+                    projectContent.style.display = 'block';
+                    frameContentLeft.classList.remove('fade-out');
+                }, 500);
+            } else {
+                welcomeSection.style.display = 'block';
+            }
         });
     });
 });
