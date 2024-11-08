@@ -112,8 +112,18 @@ body {
 
 .frame-content-left h1 {
     font-size: 64px;
-    font-weight: 200;
+    font-weight: 100;
     margin: 0;
+}
+
+.frame-content-left p::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(45deg, #A5CB45, #4F4B8B);
 }
 
 .frame-content-left p {
@@ -124,22 +134,43 @@ body {
     white-space: pre-line;
 }
 
-.frame-content-left p::before {
+.frame-content-left a {
+    display: inline-block;
+    text-decoration: none;
+    color: #b8b8b8;
+    position: relative;
+    margin-right: 15px;
+}
+
+.frame-content-left a::after {
     content: '';
     position: absolute;
     left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(45deg,#A5CB45, #4F4B8B );
+    bottom: -2px; /* Ajustez cette valeur si nécessaire */
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(45deg, #A5CB45, #4F4B8B);
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
-.frame-content-left h1, .frame-content-left p {
+.frame-content-left a:hover{
+    color: #ffffff;
+    transition: color 0.5s ease;
+    transform: scale(1.1);
+}
+
+.frame-content-left a:hover::after {
+    background: linear-gradient(45deg, #4F4B8B, #A5CB45);
+}
+
+.frame-content-left {
     transition: opacity 0.5s ease-in-out;
     opacity: 1;
 }
 
-.frame-content-left h1.fade-out, .frame-content-left p.fade-out {
+.frame-content-left.fade-out, .frame-content-left.fade-out {
     opacity: 0;
 }
 
