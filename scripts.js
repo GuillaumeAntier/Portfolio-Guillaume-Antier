@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const projectType = this.getAttribute('data-type');
-            const projectId = this.getAttribute('data-id');
+            const projectIds = this.getAttribute('data-id').split(',');
 
             modalContent.innerHTML = ''; // Clear previous content
 
@@ -63,22 +63,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 const video = document.createElement('video');
                 video.controls = true;
                 const source = document.createElement('source');
-                source.src = `./Vidéo%20${projectId}.mp4`;
+                source.src = `./Vidéo%20${projectIds[0]}.mp4`;
                 source.type = 'video/mp4';
                 video.appendChild(source);
                 modalContent.appendChild(video);
             } else if (projectType === 'images') {
+                let currentIndex = 0;
+
                 const imageGallery = document.createElement('div');
                 imageGallery.className = 'image-gallery';
-                // Add images dynamically
-                const images = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Replace with actual image paths
-                images.forEach(src => {
-                    const img = document.createElement('img');
-                    img.src = `./images/${src}`;
-                    img.alt = `Image ${src}`;
-                    imageGallery.appendChild(img);
-                });
+
+                const img = document.createElement('img');
+                img.src = `./images/${projectIds[currentIndex]}`;
+                img.alt = `Image ${projectIds[currentIndex]}`;
+                imageGallery.appendChild(img);
+
+                const prevButton = document.createElement('button');
+                prevButton.innerHTML = '';
+                prevButton.className = 'prev';
+                prevButton.onclick = function() {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : projectIds.length - 1;
+                    img.src = `./images/${projectIds[currentIndex]}`;
+                    img.alt = `Image ${projectIds[currentIndex]}`;
+                };
+
+                const nextButton = document.createElement('button');
+                nextButton.innerHTML = '';
+                nextButton.className = 'next';
+                nextButton.onclick = function() {
+                    currentIndex = (currentIndex < projectIds.length - 1) ? currentIndex + 1 : 0;
+                    img.src = `./images/${projectIds[currentIndex]}`;
+                    img.alt = `Image ${projectIds[currentIndex]}`;
+                };
+
+                modalContent.appendChild(prevButton);
                 modalContent.appendChild(imageGallery);
+                modalContent.appendChild(nextButton);
             }
 
             modal.style.display = 'flex';
