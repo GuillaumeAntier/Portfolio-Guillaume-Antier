@@ -134,7 +134,74 @@ body {
     white-space: pre-line;
 }
 
-.frame-content-left a {
+.logo-symfony {
+    width: 150px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-mongodb {
+    width: 150px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-python {
+    width: 50px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-arduino {
+    width: 80px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-raspberry {
+    width: 50px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-angular {
+    width: 200px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-go{
+    width: 100px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-sqlite {
+    width: 125px;
+    height: 50px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.logo-javascript {
+    width: 80px;
+    height: 80px;
+    padding: 5%;
+    transition: transform 0.3s ease;
+}
+
+.technologies-images img:hover {
+    transform: scale(1.1);
+}
+
+.link-project a {
     display: inline-block;
     text-decoration: none;
     color: #b8b8b8;
@@ -142,7 +209,7 @@ body {
     margin-right: 15px;
 }
 
-.frame-content-left a::after {
+.link-project a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -155,13 +222,13 @@ body {
     transition: transform 0.3s ease;
 }
 
-.frame-content-left a:hover{
+.link-project a:hover{
     color: #ffffff;
     transition: color 0.5s ease;
     transform: scale(1.1);
 }
 
-.frame-content-left a:hover::after {
+.link-project a:hover::after {
     background: linear-gradient(45deg, #4F4B8B, #A5CB45);
 }
 
@@ -179,7 +246,7 @@ body {
     display: grid;
     text-align: center;
     gap: 5px;
-    width: 20%;
+    width: 25%;
 }
 
 .frame-content-right h2 {
@@ -209,6 +276,11 @@ body {
     gap: 30px;
     margin: 0;
     
+}
+
+.projet-list li {
+    margin-left: 45px;
+    text-align: left;
 }
 
 .frame-content-right li a {
@@ -248,6 +320,48 @@ body {
     position: absolute;
     bottom: 25px;
     right: 50px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
